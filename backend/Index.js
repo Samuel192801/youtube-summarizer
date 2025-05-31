@@ -1,13 +1,7 @@
-```js
 const express = require('express');
-const cors = require('cors');
-const { summarizeRouter } = require('./summarize');
+const http = require('http');
+const { app, server } = require('./server');
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-app.use('/api', summarizeRouter);
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🧠 Sumarizador rodando em http://localhost:${PORT}`));
+server.listen(3000, () => {
+  console.log('🧠 Sumarizador de vídeos iniciado em http://localhost:3000');
+});
